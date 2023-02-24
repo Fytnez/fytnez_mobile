@@ -1,16 +1,22 @@
-# fytnez_mobile
+# Breve Descrição da Proposta:
 
-A new Flutter project.
+O objetivo geral do projeto FYTNEZ é ser uma aplicação mobile multiplataforma que possibilite ao usuário gerir suas atividades fitness do dia a dia, seja na sua dieta ou na prática de atividades físicas.
 
-## Getting Started
+# Integrantes e Cargos:
+**P.O.:** Gustavo de Oliveira Guidetti
+**Scrum Master:** Santyero Mesquita Borges dos Santos
+**Devs:**
+- Jonatas da Silva de Oliveira
+- Luiz Fernando Brasil
+- Felipe Adryan da Hora
+- Pedro Henrique Santos Kusiak
 
-This project is a starting point for a Flutter application.
+# Tecnologias a serem utilizadas:
+- Flutter (Dart)
+- Django (Python)
+- React (Typescript)
 
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+# Repositórios:
+- [fytnez_mobile](https://github.com/Fytnez/fytnez_mobile)
+- [fytnez-backend](https://github.com/Fytnez/fytnez-backend)
+- [fytnez-frontend](https://github.com/Fytnez/fytnez-frontend)
