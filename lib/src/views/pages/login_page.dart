@@ -1,16 +1,20 @@
 import 'package:flutter/material.dart';
 
 class Login extends StatefulWidget {
+  static const String _routeName = '/';
+
+  static String getRouteName() => _routeName;
+
+  const Login({super.key});
+
   @override
-  _LoginState createState() => _LoginState();
+  State<Login> createState() => _LoginState();
 }
 
 class _LoginState extends State<Login> {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: Scaffold(
+    return Scaffold(
         backgroundColor: Color.fromRGBO(32, 41, 48, 0.95),
         body: Padding(
           padding: const EdgeInsets.all(32.0),
@@ -105,7 +109,6 @@ class _LoginState extends State<Login> {
             ],
           ),
         ),
-      ),
     );
   }
 }
