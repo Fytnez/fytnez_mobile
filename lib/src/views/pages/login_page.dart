@@ -35,12 +35,14 @@ class _LoginState extends State<Login> {
               const SizedBox(height: 64),
               Container(
                 decoration: BoxDecoration(
-                  color: Color.fromRGBO(32, 41, 48, 0.70),
+                  color: Color.fromRGBO(60, 78, 92, 0.698),
                   borderRadius: BorderRadius.circular(8),
                 ),
                 child: TextFormField(
+                  style: TextStyle(color: Colors.white),
                   decoration: const InputDecoration(
                     labelText: 'Email',
+                    labelStyle:TextStyle(color: Color.fromRGBO(255, 255, 255, 0.76), fontSize: 16.0),
                     border: InputBorder.none,
                     contentPadding: EdgeInsets.all(12),
                   ),
@@ -49,13 +51,15 @@ class _LoginState extends State<Login> {
               const SizedBox(height: 16),
               Container(
                 decoration: BoxDecoration(
-                  color: Color.fromRGBO(32, 41, 48, 0.70),
+                  color: Color.fromRGBO(60, 78, 92, 0.698),
                   borderRadius: BorderRadius.circular(8),
                 ),
                 child: TextFormField(
                   obscureText: true,
+                  style: TextStyle(color: Colors.white),
                   decoration: const InputDecoration(
                     labelText: 'Senha',
+                    labelStyle: TextStyle(color: Color.fromRGBO(255, 255, 255, 0.76), fontSize: 16.0),
                     border: InputBorder.none,
                     contentPadding: EdgeInsets.all(12),
                   ),
@@ -77,10 +81,11 @@ class _LoginState extends State<Login> {
               Padding(
                 padding: EdgeInsets.symmetric(horizontal: 50),
                 child: ElevatedButton(
-                  child: const Text('Acessar'),
+                  child: const Text('Acessar'),             
                   onPressed: () {},
                   style: ElevatedButton.styleFrom(
                     primary: Color.fromRGBO(208, 240, 247, 0.95),
+                    onPrimary: Colors.black,
                     padding: EdgeInsets.symmetric(vertical: 16),
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(8),
