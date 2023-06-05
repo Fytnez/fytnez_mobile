@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:fytnez_mobile/src/apis/fytnez/user_route.dart';
+import 'package:fytnez_mobile/src/dtos/user_dto.dart';
 import 'package:fytnez_mobile/src/views/components/date_picker_component/date_picker_component.dart';
 
 class UserForm extends StatefulWidget {
@@ -13,6 +15,8 @@ class UserForm extends StatefulWidget {
 }
 
 class _UserFormState extends State<UserForm> {
+  final UserRoute _userRoute = UserRoute();
+
   String _name = '';
   DateTime? _birthDate;
   int _height = 0;
@@ -23,7 +27,25 @@ class _UserFormState extends State<UserForm> {
 
   void _cancelForm() {}
 
-  void _confirmForm() {}
+  void _confirmForm() {
+    if (_birthDate == null) {
+      return;
+    }
+
+    if (_password.isEmpty || _passwordConfirmation.isEmpty || _password != _passwordConfirmation) {
+      return;
+    }
+
+    final userDto = UserDTO(
+        name: _name,
+        birthDate: _birthDate!,
+        height: _height,
+        weight: _weight,
+        email: _email,
+        password: _password);
+
+    _userRoute.create(userDto);
+  }
 
   @override
   Widget build(BuildContext context) {

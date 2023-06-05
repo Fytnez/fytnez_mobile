@@ -25,4 +25,16 @@ class UserDTO extends GenericDTO {
         _weight = weight,
         _email = email,
         _password = password;
+
+  @override
+  Map<String, dynamic> dtoToMap() {
+    return {
+      'name': _name,
+      'birth_date': _birthDate?.toIso8601String(),
+      'height': _height,
+      'weight': _weight,
+      'email': _email,
+      'password': _password,
+    };
+  }
 }
