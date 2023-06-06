@@ -2,51 +2,38 @@ import 'package:flutter/material.dart';
 import 'package:fytnez_mobile/src/apis/fytnez/user_route.dart';
 import 'package:fytnez_mobile/src/dtos/user_dto.dart';
 import 'package:fytnez_mobile/src/views/components/date_picker_component/date_picker_component.dart';
+import 'package:fytnez_mobile/src/views/dialogs/generic_dialogs.dart';
+import 'package:fytnez_mobile/src/views/pages/user/user_form/user_form_data.dart';
+import 'package:fytnez_mobile/src/views/pages/user/user_form/user_form_validator.dart';
 
-class UserForm extends StatefulWidget {
+class UserFormPage extends StatefulWidget {
   static const String _routeName = '/';
 
   static String getRouteName() => _routeName;
 
-  const UserForm({super.key});
+  const UserFormPage({super.key});
 
   @override
-  State<UserForm> createState() => _UserFormState();
+  State<UserFormPage> createState() => _UserFormPageState();
 }
 
-class _UserFormState extends State<UserForm> {
+class _UserFormPageState extends State<UserFormPage> {
   final UserRoute _userRoute = UserRoute();
+  final UserFormData _userFormData = UserFormData();
 
-  String _name = '';
-  DateTime? _birthday;
-  int _height = 0;
-  int _weight = 0;
-  String _email = '';
-  String _password = '';
-  String _passwordConfirmation = '';
+  void _cancelForm() {
+    Navigator.of(context).pop();
+  }
 
-  void _cancelForm() {}
-
-  void _confirmForm() {
-    if (_birthday == null) {
-      return;
+  void _confirmForm() async {
+    if (UserFormValidator(_userFormData).isValid()) {
+      final userDto = _userFormData.toDTO();
+      final isCreated = await _userRoute.create(userDto);
+      if (isCreated) {
+        GenericDialogs.showAlertDialog('Usuário criado com sucesso!',
+            onConfirm: () => Navigator.of(context).pop());
+      }
     }
-
-    if (_password.isEmpty ||
-        _passwordConfirmation.isEmpty ||
-        _password != _passwordConfirmation) {
-      return;
-    }
-
-    final userDto = UserDTO(
-        name: _name,
-        birthday: _birthday!,
-        height: _height,
-        weight: _weight,
-        email: _email,
-        password: _password);
-
-    _userRoute.create(userDto);
   }
 
   @override
@@ -73,7 +60,7 @@ class _UserFormState extends State<UserForm> {
                                   labelText: 'Nome',
                                 ),
                                 onChanged: (value) =>
-                                    setState(() => _name = value),
+                                    setState(() => _userFormData.name = value),
                               ))
                             ],
                           ),
@@ -84,8 +71,8 @@ class _UserFormState extends State<UserForm> {
                                       decoration: const InputDecoration(
                                         labelText: 'E-mail',
                                       ),
-                                      onChanged: (value) =>
-                                          setState(() => _email = value))),
+                                      onChanged: (value) => setState(
+                                          () => _userFormData.email = value))),
                             ],
                           ),
                           Row(children: [
@@ -94,8 +81,8 @@ class _UserFormState extends State<UserForm> {
                               decoration: const InputDecoration(
                                 labelText: 'Senha',
                               ),
-                              onChanged: (value) =>
-                                  setState(() => _password = value),
+                              onChanged: (value) => setState(
+                                  () => _userFormData.password = value),
                             ))
                           ]),
                           Row(
@@ -105,8 +92,8 @@ class _UserFormState extends State<UserForm> {
                                 decoration: const InputDecoration(
                                   labelText: 'Confirmar Senha',
                                 ),
-                                onChanged: (value) => setState(
-                                    () => _passwordConfirmation = value),
+                                onChanged: (value) => setState(() =>
+                                    _userFormData.passwordConfirmation = value),
                               ))
                             ],
                           ),
@@ -114,7 +101,7 @@ class _UserFormState extends State<UserForm> {
                             DatePickerComponent(
                               labelText: 'Data de Nascimento',
                               onSelectDate: (date) =>
-                                  setState(() => _birthday = date),
+                                  setState(() => _userFormData.birthday = date),
                             )
                           ]),
                           Row(children: [
@@ -124,8 +111,8 @@ class _UserFormState extends State<UserForm> {
                                 labelText: 'Altura',
                               ),
                               keyboardType: TextInputType.number,
-                              onChanged: (value) =>
-                                  setState(() => _height = int.parse(value)),
+                              onChanged: (value) => setState(() =>
+                                  _userFormData.height = int.parse(value)),
                             ))
                           ]),
                           Row(children: [
@@ -135,8 +122,8 @@ class _UserFormState extends State<UserForm> {
                                 labelText: 'Peso',
                               ),
                               keyboardType: TextInputType.number,
-                              onChanged: (value) =>
-                                  setState(() => _weight = int.parse(value)),
+                              onChanged: (value) => setState(() =>
+                                  _userFormData.weight = int.parse(value)),
                             ))
                           ]),
                           Row(
