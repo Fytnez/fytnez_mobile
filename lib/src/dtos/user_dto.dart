@@ -1,4 +1,6 @@
 import 'package:fytnez_mobile/src/dtos/generic_dto.dart';
+import 'package:fytnez_mobile/src/views/pages/user/user_form/user_form_data.dart';
+import 'package:fytnez_mobile/src/extensions/date_time_extensions.dart';
 
 class UserDTO extends GenericDTO {
   String? _name;
@@ -30,7 +32,7 @@ class UserDTO extends GenericDTO {
   Map<String, dynamic> dtoToMap() {
     return {
       'name': _name,
-      'birthday': _birthday?.toIso8601String(),
+      'birthday': _birthday?.toEnUsFormat(),
       'height': _height,
       'weight': _weight,
       'email': _email,
