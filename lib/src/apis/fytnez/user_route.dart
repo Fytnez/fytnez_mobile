@@ -3,5 +3,5 @@ import 'package:fytnez_mobile/src/dtos/user_dto.dart';
 
 class UserRoute extends GenericRoute<UserDTO> {
   @override
-  String getPath() => 'register/user';
+  String getPath() => 'register/users';
 }

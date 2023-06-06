@@ -18,7 +18,7 @@ class _UserFormState extends State<UserForm> {
   final UserRoute _userRoute = UserRoute();
 
   String _name = '';
-  DateTime? _birthDate;
+  DateTime? _birthday;
   int _height = 0;
   int _weight = 0;
   String _email = '';
@@ -28,17 +28,19 @@ class _UserFormState extends State<UserForm> {
   void _cancelForm() {}
 
   void _confirmForm() {
-    if (_birthDate == null) {
+    if (_birthday == null) {
       return;
     }
 
-    if (_password.isEmpty || _passwordConfirmation.isEmpty || _password != _passwordConfirmation) {
+    if (_password.isEmpty ||
+        _passwordConfirmation.isEmpty ||
+        _password != _passwordConfirmation) {
       return;
     }
 
     final userDto = UserDTO(
         name: _name,
-        birthDate: _birthDate!,
+        birthday: _birthday!,
         height: _height,
         weight: _weight,
         email: _email,
@@ -112,7 +114,7 @@ class _UserFormState extends State<UserForm> {
                             DatePickerComponent(
                               labelText: 'Data de Nascimento',
                               onSelectDate: (date) =>
-                                  setState(() => _birthDate = date),
+                                  setState(() => _birthday = date),
                             )
                           ]),
                           Row(children: [

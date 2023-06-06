@@ -2,7 +2,7 @@ import 'package:fytnez_mobile/src/dtos/generic_dto.dart';
 
 class UserDTO extends GenericDTO {
   String? _name;
-  DateTime? _birthDate;
+  DateTime? _birthday;
   int? _height;
   int? _weight;
   String? _email;
@@ -11,7 +11,7 @@ class UserDTO extends GenericDTO {
   UserDTO({
     super.id,
     required String name,
-    required DateTime birthDate,
+    required DateTime birthday,
     required int height,
     required int weight,
     required String email,
@@ -20,7 +20,7 @@ class UserDTO extends GenericDTO {
     super.updatedAt,
     super.deletedAt,
   })  : _name = name,
-        _birthDate = birthDate,
+        _birthday = birthday,
         _height = height,
         _weight = weight,
         _email = email,
@@ -30,7 +30,7 @@ class UserDTO extends GenericDTO {
   Map<String, dynamic> dtoToMap() {
     return {
       'name': _name,
-      'birth_date': _birthDate?.toIso8601String(),
+      'birthday': _birthday?.toIso8601String(),
       'height': _height,
       'weight': _weight,
       'email': _email,
