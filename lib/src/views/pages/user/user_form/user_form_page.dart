@@ -7,7 +7,7 @@ import 'package:fytnez_mobile/src/views/pages/user/user_form/user_form_data.dart
 import 'package:fytnez_mobile/src/views/pages/user/user_form/user_form_validator.dart';
 
 class UserFormPage extends StatefulWidget {
-  static const String _routeName = '/';
+  static const String _routeName = '/user/form';
 
   static String getRouteName() => _routeName;
 
