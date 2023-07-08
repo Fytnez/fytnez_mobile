@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:fytnez_mobile/src/routes/screen_routes.dart';
+import 'package:fytnez_mobile/src/global/navigator_key.dart';
 
 class App extends StatelessWidget {
   const App({super.key});
@@ -22,6 +23,7 @@ class App extends StatelessWidget {
         primarySwatch: Colors.blue,
       ),
       routes: screenRoutes,
+      navigatorKey: navigatorKey,
     );
   }
 }
