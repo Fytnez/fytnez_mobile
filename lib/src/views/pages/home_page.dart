@@ -1,4 +1,5 @@
 /*import 'package:flutter/material.dart';
+import 'package:fytnez_mobile/src/views/styles/colors.dart';
 
 import '../components/content_holder.component.dart';
 
@@ -20,7 +21,7 @@ class _HomeState extends State<Home> {
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
-        backgroundColor: Color.fromRGBO(32, 41, 48, 0.95),
+        backgroundColor: COLOR_PRIMARY_100,
         appBar: AppBar(
           title: Text('Home'),
         ),
