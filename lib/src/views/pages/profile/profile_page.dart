@@ -2,72 +2,67 @@ import 'package:flutter/material.dart';
 
 
 class ProfilePage extends StatelessWidget {
-  const ProfilePage({Key? key}) : super(key: key);
+  static const String _routeName = '/';
+
+  static String getRouteName() => _routeName;
+
+  const ProfilePage({super.key});
 
   @override
   Widget build(BuildContext context) {
-    User user = receiveUser(context);
+    final _formKey = GlobalKey<FormState>();
+
+
     return Scaffold(
-      body: ListView( 
-        padding: const EdgeInsets.all(60),
-        children: [
-          name(user),
-          weight(user),
-          height(user),
-          email(user),
-          birthday(user)
-        ],
+      appBar: AppBar(
+        title: const Text("Perfil"),
+      ),
+      body: Form(
+        key: _formKey,
+        child: Padding(
+          padding: const EdgeInsets.all(32.0),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: [
+              CircleAvatar(
+                backgroundColor: Colors.black,
+                radius: 120,
+                child: CircleAvatar(
+                  radius: 110,
+                  backgroundImage: NetworkImage('https://lh3.googleusercontent.com/w_vIrD8RpJ0hGm5LlqL-6YEfUCuiVujyxpxxIie3MLgRoSeZNfzeavXb2c5Ms6s2s3yn7bxtNIMDHMPmNDYFXYpOPMsfWbHJudQHCXZD'),
+                ),
+              ),
+              const SizedBox(height: 16),
+              TextFormField(
+                decoration: const InputDecoration(labelText: 'Nome'),
+              ),
+              const SizedBox(height: 16),
+              TextFormField(
+                decoration: const InputDecoration(labelText: 'Peso:'),
+              ),
+              const SizedBox(height: 16),
+              TextFormField(
+                decoration: const InputDecoration(labelText: 'Altura:'),
+              ),
+              const SizedBox(height: 16),
+              TextFormField(
+                decoration: const InputDecoration(labelText: 'Data de aniversario:'),
+              ),
+              const SizedBox(height: 16),
+              TextFormField(
+                decoration: const InputDecoration(labelText: 'E-mail:'),
+              ),
+              const SizedBox(height: 16),
+              TextFormField(
+                decoration: const InputDecoration(labelText: 'Alterar senha:'),
+              ),
+                
+              
+            ],
+          ),
+        ),
       ),
     );
   }
-  User receiveUser(BuildContext context) {
-    var param = ModalRoute.of(context);
-    if (param != null) {
-      User user = param.settings.arguments as User;
-      return user;
-    } else {
-      throw Exception('Problemas em receber o usuario');
-    }
-  }
-  Widget nome(User user){
-    return Center( 
-      child: Text(
-        user.name, 
-        style: const TextStyle(fontSize: 30)
-      )
-    );
-  }
-  Widget weight(User user){
-    return Center( 
-      child: Text(
-        user.weight, 
-        style: const TextStyle(fontSize: 30)
-      )
-    );
-  }
-  Widget height(User user){
-    return Center( 
-      child: Text(
-        user.height, 
-        style: const TextStyle(fontSize: 30)
-      )
-    );
-  }
-  Widget email(User user){
-    return Center( 
-      child: Text(
-        user.email, 
-        style: const TextStyle(fontSize: 30)
-      )
-    );
-    }
-  Widget birthday(User user){
-    return Center( 
-      child: Text(
-        user.birthday, 
-        style: const TextStyle(fontSize: 30)
-      )
-    );
-
-
 }
