@@ -14,6 +14,19 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
+  int _currentIndex = 0;
+
+  void _onTabTapped(int index) {
+    if (index == 4) {
+      // Índice 4 corresponde ao último item
+      Navigator.pushNamed(context, '/user/form');
+    } else {
+      setState(() {
+        _currentIndex = index;
+      });
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -25,6 +38,7 @@ class _HomeState extends State<Home> {
         body: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
+            // Seu conteúdo existente
             ComponentHolder(
               height: 180.0,
               children: [
@@ -144,6 +158,39 @@ class _HomeState extends State<Home> {
               ],
             ),
           ],
+        ),
+        bottomNavigationBar: Theme(
+          data: Theme.of(context).copyWith(
+            canvasColor: const Color(0xFF2C343C),
+          ),
+          child: BottomNavigationBar(
+            currentIndex: _currentIndex,
+            onTap: _onTabTapped,
+            selectedItemColor: Colors.white,
+            unselectedItemColor: Colors.grey,
+            items: const <BottomNavigationBarItem>[
+              BottomNavigationBarItem(
+                icon: Icon(Icons.query_stats_sharp),
+                label: 'Estatísticas',
+              ),
+              BottomNavigationBarItem(
+                icon: Icon(Icons.restaurant),
+                label: 'Dieta',
+              ),
+              BottomNavigationBarItem(
+                icon: Icon(Icons.home),
+                label: 'Início',
+              ),
+              BottomNavigationBarItem(
+                icon: Icon(Icons.bolt_outlined),
+                label: 'Treino',
+              ),
+              BottomNavigationBarItem(
+                icon: Icon(Icons.person),
+                label: 'Perfil',
+              ),
+            ],
+          ),
         ),
       ),
     );
