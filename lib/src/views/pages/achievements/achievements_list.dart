@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:fytnez_mobile/src/apis/fytnez/achievement_route.dart';
+import 'package:fytnez_mobile/src/dtos/achievement_dto.dart';
 import 'package:fytnez_mobile/src/views/pages/achievements/achievement_item/achievement_item.dart';
 import 'package:fytnez_mobile/src/views/styles/colors.dart';
 
@@ -14,6 +16,11 @@ class AchievementsList extends StatefulWidget {
 }
 
 class _AchievementsListState extends State<AchievementsList> {
+  final AchievementRoute _achievementRoute = AchievementRoute();
+  List<AchievementDTO> _achievements  = [];
+
+  
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
