@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class Login extends StatefulWidget {
-  static const String _routeName = '/';
+  static const String _routeName = 'Login';
 
   static String getRouteName() => _routeName;
 

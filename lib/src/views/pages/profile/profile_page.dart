@@ -15,6 +15,7 @@ class ProfilePage extends StatelessWidget {
     final _formKey = GlobalKey<FormState>();
 
     return Scaffold(
+      backgroundColor: Color.fromRGBO(32, 41, 48, 0.95),
       appBar: AppBar(
         title: const Text("Perfil"),
       ),
@@ -36,35 +37,107 @@ class ProfilePage extends StatelessWidget {
                 ),
               ),
               const SizedBox(height: 16),
-              TextFormField(
-                decoration: const InputDecoration(labelText: 'Nome'),
-                initialValue: userFormData.name,
+              Container(
+                decoration: BoxDecoration(
+                  color: Color.fromRGBO(60, 78, 92, 0.698),
+                  borderRadius: BorderRadius.circular(8),
+                ),
+                child: TextFormField(
+                  style: TextStyle(color: Colors.white),
+                  decoration: const InputDecoration(
+                    labelText: 'Nome',
+                    labelStyle: TextStyle(
+                        color: Color.fromRGBO(255, 255, 255, 0.76),
+                        fontSize: 16.0),
+                    border: InputBorder.none,
+                    contentPadding: EdgeInsets.all(12),
+                  ),
+                  initialValue: userFormData.name,
+                ),
               ),
               const SizedBox(height: 16),
-              TextFormField(
-                decoration: const InputDecoration(labelText: 'Peso:'),
-                initialValue: userFormData.weight.toString(),
+              Container(
+                decoration: BoxDecoration(
+                  color: Color.fromRGBO(60, 78, 92, 0.698),
+                  borderRadius: BorderRadius.circular(8),
+                ),
+                child: TextFormField(
+                  style: TextStyle(color: Colors.white),
+                  decoration: const InputDecoration(
+                    labelText: 'Peso:',
+                    labelStyle: TextStyle(
+                        color: Color.fromRGBO(255, 255, 255, 0.76),
+                        fontSize: 16.0),
+                    border: InputBorder.none,
+                    contentPadding: EdgeInsets.all(12),
+                  ),
+                  initialValue: userFormData.weight.toString(),
+                ),
               ),
               const SizedBox(height: 16),
-              TextFormField(
-                decoration: const InputDecoration(labelText: 'Altura:'),
-                initialValue: userFormData.height.toString(),
+              Container(
+                decoration: BoxDecoration(
+                  color: Color.fromRGBO(60, 78, 92, 0.698),
+                  borderRadius: BorderRadius.circular(8),
+                ),
+                child: TextFormField(
+                  style: TextStyle(color: Colors.white),
+                  decoration: const InputDecoration(
+                    labelText: 'Altura:',
+                    labelStyle: TextStyle(
+                        color: Color.fromRGBO(255, 255, 255, 0.76),
+                        fontSize: 16.0),
+                    border: InputBorder.none,
+                    contentPadding: EdgeInsets.all(12),
+                  ),
+                  initialValue: userFormData.height.toString(),
+                ),
               ),
               const SizedBox(height: 16),
-              TextFormField(
-                decoration:
-                    const InputDecoration(labelText: 'Data de aniversario:'),
-                initialValue: userFormData.birthday
-                    .toString(), // You need to format the date appropriately
+              Container(
+                decoration: BoxDecoration(
+                  color: Color.fromRGBO(60, 78, 92, 0.698),
+                  borderRadius: BorderRadius.circular(8),
+                ),
+                child: TextFormField(
+                  style: TextStyle(color: Colors.white),
+                  decoration: const InputDecoration(
+                    labelText: 'Data de aniversário:',
+                    labelStyle: TextStyle(
+                        color: Color.fromRGBO(255, 255, 255, 0.76),
+                        fontSize: 16.0),
+                    border: InputBorder.none,
+                    contentPadding: EdgeInsets.all(12),
+                  ),
+                  initialValue: userFormData.birthday.toString(),
+                ),
               ),
               const SizedBox(height: 16),
-              TextFormField(
-                decoration: const InputDecoration(labelText: 'E-mail:'),
-                initialValue: userFormData.email,
+              Container(
+                decoration: BoxDecoration(
+                  color: Color.fromRGBO(60, 78, 92, 0.698),
+                  borderRadius: BorderRadius.circular(8),
+                ),
+                child: TextFormField(
+                  style: TextStyle(color: Colors.white),
+                  decoration: const InputDecoration(
+                    labelText: 'E-mail:',
+                    labelStyle: TextStyle(
+                        color: Color.fromRGBO(255, 255, 255, 0.76),
+                        fontSize: 16.0),
+                    border: InputBorder.none,
+                    contentPadding: EdgeInsets.all(12),
+                  ),
+                  initialValue: userFormData.email,
+                ),
               ),
               const SizedBox(height: 16),
-              TextFormField(
-                decoration: const InputDecoration(labelText: 'Alterar senha:'),
+              ElevatedButton(
+                onPressed: () => {},
+                style: ElevatedButton.styleFrom(
+                  primary: Color.fromRGBO(18, 21, 22, 0.949),
+                ),
+                child: Text('Alterar senha'),
               ),
             ],
           ),
