@@ -2,6 +2,8 @@
 
 import '../components/content_holder.component.dart';
 
+import '../components/content_holder.component.dart';
+
 class Home extends StatefulWidget {
   static const String _routeName = '/';
 
