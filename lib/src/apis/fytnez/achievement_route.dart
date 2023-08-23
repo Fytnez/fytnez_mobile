@@ -4,4 +4,9 @@ import 'package:fytnez_mobile/src/dtos/achievement_dto.dart';
 class AchievementRoute extends GenericRoute<AchievementDTO> {
   @override
   String getPath() => 'register/achievements';
+
+  @override
+  AchievementDTO fromMap(Map<String, dynamic> map) {
+    return AchievementDTO.fromMap(map);
+  }
 }
