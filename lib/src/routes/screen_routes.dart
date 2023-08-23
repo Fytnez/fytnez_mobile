@@ -7,4 +7,5 @@ Map<String, Widget Function(BuildContext)> screenRoutes = {
   Login.getRouteName(): (context) => const Login(),
   Home.getRouteName(): (context) => const Home(title: 'Flutter Demo Home Page'),
   UserFormPage.getRouteName(): (context) => const UserFormPage(),
+  Login.getRouteName(): (context) => const Login(),
 };
