@@ -11,12 +11,14 @@ abstract class GenericRoute<DTO extends GenericDTO> {
 
   String getPath();
 
+  DTO fromMap(Map<String, dynamic> map);
+
   @protected
   getRouteName() => _apiRoute;
 
   Future<bool> create(DTO dto) async {
-    var url = Uri.parse('$_apiRoute/${getPath()}/');
-    var response = await http.post(url,
+    final url = Uri.parse('$_apiRoute/${getPath()}/');
+    final response = await http.post(url,
         headers: <String, String>{
           'Content-Type': 'application/json; charset=UTF-8',
         },
@@ -35,6 +37,28 @@ abstract class GenericRoute<DTO extends GenericDTO> {
         GenericDialogs.showAlertDialog(
             'Não foi possível criar: ${response.body}');
         return false;
+    }
+  }
+
+  Future<List<DTO>> listAll() async {
+    final url = Uri.parse('$_apiRoute/${getPath()}/');
+    final response = await http.get(url,
+      headers: <String, String>{
+        'Content-Type': 'application/json; charset=UTF-8',
+      }
+    );
+
+    print(response);
+
+    switch(response.statusCode) {
+        case HttpStatus.ok:
+          final List<dynamic> jsonResponse = json.decode(response.body);
+          return jsonResponse.map((dtoJson) => this.fromMap(dtoJson)).toList();
+
+        default:
+          GenericDialogs.showAlertDialog(
+              'Não foi buscar os registros: ${response.body}');
+          return [];
     }
   }
 }

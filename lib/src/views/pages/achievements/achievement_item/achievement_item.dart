@@ -1,14 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:fytnez_mobile/src/dtos/achievement_dto.dart';
 import 'package:fytnez_mobile/src/views/styles/colors.dart';
 
 class AchievementItem extends StatelessWidget {
-  final String achievementName;
-  final String achievementDescription;
+  final AchievementDTO achievement;
 
-  const AchievementItem(
-      {super.key,
-      required this.achievementName,
-      required this.achievementDescription});
+  const AchievementItem({super.key, required this.achievement});
 
   @override
   Widget build(BuildContext context) {
@@ -30,14 +27,16 @@ class AchievementItem extends StatelessWidget {
                 padding: const EdgeInsets.all(10.0),
                 child: Container(
                     decoration: ShapeDecoration(
-                      color: Colors.amber,
+                      color: Color(int.parse(achievement.getHexColor().replaceAll('#', ''), radix: 16) + 0xFF000000),
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(14),
                       ),
                     ),
                     child: Align(
                       alignment: Alignment.center,
-                      child: Icon(Icons.favorite),
+                      child: Icon(IconData(
+                          int.parse(achievement.getIcon()),
+                          fontFamily: 'MaterialIcons')),
                     )),
               )),
           Flexible(
@@ -48,7 +47,7 @@ class AchievementItem extends StatelessWidget {
                   Align(
                     alignment: Alignment.topLeft,
                     child: Text(
-                      achievementName,
+                      achievement.getName(),
                       style: TextStyle(
                         color: Colors.white,
                         fontSize: 18,
@@ -60,7 +59,7 @@ class AchievementItem extends StatelessWidget {
                   Align(
                     alignment: Alignment.topLeft,
                     child: Text(
-                      achievementDescription,
+                      achievement.getDescription(),
                       textAlign: TextAlign.justify,
                       style: TextStyle(
                         color: Colors.white,
