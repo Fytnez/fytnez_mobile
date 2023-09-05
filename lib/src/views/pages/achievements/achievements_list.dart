@@ -5,7 +5,7 @@ import 'package:fytnez_mobile/src/views/pages/achievements/achievement_item/achi
 import 'package:fytnez_mobile/src/views/styles/colors.dart';
 
 class AchievementsList extends StatefulWidget {
-  static const String _routeName = '/';
+  static const String _routeName = '/achievements';
 
   static String getRouteName() => _routeName;
 
