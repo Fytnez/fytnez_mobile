@@ -1,8 +1,5 @@
-/*import 'package:flutter/material.dart';
+import 'package:flutter/material.dart';
 import 'package:fytnez_mobile/src/views/styles/colors.dart';
-
-import '../components/content_holder.component.dart';
-
 import '../components/content_holder.component.dart';
 
 class Home extends StatefulWidget {
@@ -152,4 +149,3 @@ class _HomeState extends State<Home> {
     );
   }
 }
-*/
