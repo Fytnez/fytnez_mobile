@@ -6,9 +6,9 @@ import 'package:fytnez_mobile/src/views/pages/user/user_form/user_form_data.dart
 import 'package:fytnez_mobile/src/views/pages/user/user_form/user_form_page.dart';
 
 Map<String, Widget Function(BuildContext)> screenRoutes = {
-//  Home.getRouteName(): (context) => const Home(),
+  Home.getRouteName(): (context) => const Home(),
   UserFormPage.getRouteName(): (context) => const UserFormPage(),
   Login.getRouteName(): (context) => const Login(),
-  ProfilePage.getRouteName(): (context) => ProfilePage(userFormData: UserFormData()),
-
+  ProfilePage.getRouteName(): (context) =>
+      ProfilePage(userFormData: UserFormData()),
 };
