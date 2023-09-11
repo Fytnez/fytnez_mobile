@@ -4,7 +4,7 @@ import 'home_page.dart';
 import 'user/user_form/user_form_page.dart';
 
 class Login extends StatefulWidget {
-  static const String _routeName = 'Login';
+  static const String _routeName = '/login';
 
   static String getRouteName() => _routeName;
 

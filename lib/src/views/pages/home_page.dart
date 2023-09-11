@@ -19,7 +19,6 @@ class _HomeState extends State<Home> {
 
   void _onTabTapped(int index) {
     if (index == 4) {
-      // Índice 4 corresponde ao último item
       Navigator.pushNamed(context, '/user/form');
     } else {
       setState(() {
