@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:fytnez_mobile/src/apis/fytnez/user_route.dart';
-import 'package:fytnez_mobile/src/dtos/user_dto.dart';
 import 'package:fytnez_mobile/src/views/components/date_picker_component/date_picker_component.dart';
 import 'package:fytnez_mobile/src/views/dialogs/generic_dialogs.dart';
 import 'package:fytnez_mobile/src/views/pages/user/user_form/user_form_data.dart';

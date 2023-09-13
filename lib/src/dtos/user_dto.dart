@@ -1,5 +1,4 @@
 import 'package:fytnez_mobile/src/dtos/generic_dto.dart';
-import 'package:fytnez_mobile/src/views/pages/user/user_form/user_form_data.dart';
 import 'package:fytnez_mobile/src/extensions/date_time_extensions.dart';
 
 class UserDTO extends GenericDTO {
@@ -27,6 +26,10 @@ class UserDTO extends GenericDTO {
         _weight = weight,
         _email = email,
         _password = password;
+
+  UserDTO.fromMap(Map<String, dynamic> map) : super.fromMap(map) {
+
+  }
 
   @override
   Map<String, dynamic> dtoToMap() {
