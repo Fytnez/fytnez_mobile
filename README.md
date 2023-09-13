@@ -20,3 +20,10 @@ O objetivo geral do projeto FYTNEZ é ser uma aplicação mobile multiplataforma
 - [fytnez_mobile](https://github.com/Fytnez/fytnez_mobile)
 - [fytnez-backend](https://github.com/Fytnez/fytnez-backend)
 - [fytnez-frontend](https://github.com/Fytnez/fytnez-frontend)
+
+# Instruções de Inicio
+Antes de iniciar o desenvolvimento, é necessário adicionar os arquivos de configurações do firebase.
+Os arquivos estão salvos no drive no seguinte local: https://drive.google.com/drive/folders/1m9XPMUkfSGwamt-G3AYNbcgCyR_2QIrm?usp=drive_link
+O caminho para cada arquivo é:
+- google-services.json: android\app\google-services.json
+- firebase_options.dart: lib\firebase_options.dart
