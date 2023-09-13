@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-
+import 'package:fytnez_mobile/src/views/styles/colors.dart';
 import '../components/content_holder.component.dart';
 import 'profile/profile_page.dart';
 
@@ -38,7 +38,6 @@ class _HomeState extends State<Home> {
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          // Seu conteúdo existente
           ComponentHolder(
             height: 180.0,
             children: [
