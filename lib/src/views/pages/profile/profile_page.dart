@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:fytnez_mobile/src/views/pages/user/user_form/user_form_data.dart'; //
 
 class ProfilePage extends StatelessWidget {
-  static const String _routeName = '/';
+  static const String _routeName = 'profile';
 
   static String getRouteName() => _routeName;
 
