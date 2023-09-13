@@ -12,5 +12,6 @@ Map<String, Widget Function(BuildContext)> screenRoutes = {
   UserFormPage.getRouteName(): (context) => const UserFormPage(),
   AchievementsList.getRouteName(): (context) => const AchievementsList(),
   ProfilePage.getRouteName(): (context) => ProfilePage(userFormData: UserFormData()),
+
 };
 
