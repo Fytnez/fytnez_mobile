@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:fytnez_mobile/src/views/pages/diet/diet_page.dart';
 import 'package:fytnez_mobile/src/views/styles/colors.dart';
 import '../components/content_holder.component.dart';
 import 'profile/profile_page.dart';
@@ -173,6 +174,8 @@ class _HomeState extends State<Home> {
                 case 0: // Estatísticas
                   break;
                 case 1: // Dieta
+                  Navigator.pushReplacementNamed(
+                      context, DietPage.getRouteName());
                   break;
                 case 2:
                   Navigator.pushReplacementNamed(context, Home.getRouteName());
