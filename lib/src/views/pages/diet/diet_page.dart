@@ -25,11 +25,11 @@ class DietPage extends StatelessWidget {
                 calories: '500', // Adicione o valor calórico aqui
                 image:
                     AssetImage('assets/meal1.jpg'), // Adicione sua imagem aqui
-                nutrients: [
-                  '30g', // Proteína
-                  '45g', // Carboidratos
-                  '12g', // Gorduras
-                ], // Adicione os nutrientes aqui
+                nutrients: {
+                  'Proteína': '30g',
+                  'Carboidratos': '45g',
+                  'Gorduras': '12g',
+                }, // Adicione os nutrientes aqui
               ),
               SizedBox(height: 16.0), // Altura entre os cards
               DietCard(
@@ -38,11 +38,11 @@ class DietPage extends StatelessWidget {
                 calories: '350', // Adicione o valor calórico aqui
                 image:
                     AssetImage('assets/meal2.jpg'), // Adicione sua imagem aqui
-                nutrients: [
-                  '25g', // Proteína
-                  '40g', // Carboidratos
-                  '10g', // Gorduras
-                ], // Adicione os nutrientes aqui
+                nutrients: {
+                  'Proteína': '25g',
+                  'Carboidratos': '40g',
+                  'Gorduras': '10g',
+                }, // Adicione os nutrientes aqui
               ),
               SizedBox(height: 16.0), // Altura entre os cards
               DietCard(
@@ -51,11 +51,11 @@ class DietPage extends StatelessWidget {
                 calories: '600', // Adicione o valor calórico aqui
                 image:
                     AssetImage('assets/meal3.jpg'), // Adicione sua imagem aqui
-                nutrients: [
-                  '35g', // Proteína
-                  '50g', // Carboidratos
-                  '15g', // Gorduras
-                ], // Adicione os nutrientes aqui
+                nutrients: {
+                  'Proteína': '35g',
+                  'Carboidratos': '50g',
+                  'Gorduras': '15g',
+                }, // Adicione os nutrientes aqui
               ),
               SizedBox(height: 16.0), // Altura entre os cards
               DietCard(
@@ -64,11 +64,11 @@ class DietPage extends StatelessWidget {
                 calories: '450', // Adicione o valor calórico aqui
                 image:
                     AssetImage('assets/meal4.jpg'), // Adicione sua imagem aqui
-                nutrients: [
-                  '28g', // Proteína
-                  '42g', // Carboidratos
-                  '11g', // Gorduras
-                ], // Adicione os nutrientes aqui
+                nutrients: {
+                  'Proteína': '28g',
+                  'Carboidratos': '42g',
+                  'Gorduras': '11g',
+                }, // Adicione os nutrientes aqui
               ),
               SizedBox(height: 16.0), // Altura entre os cards
               DietCard(
@@ -77,11 +77,11 @@ class DietPage extends StatelessWidget {
                 calories: '550', // Adicione o valor calórico aqui
                 image:
                     AssetImage('assets/meal5.jpg'), // Adicione sua imagem aqui
-                nutrients: [
-                  '32g', // Proteína
-                  '48g', // Carboidratos
-                  '13g', // Gorduras
-                ], // Adicione os nutrientes aqui
+                nutrients: {
+                  'Proteína': '32g',
+                  'Carboidratos': '48g',
+                  'Gorduras': '13g',
+                }, // Adicione os nutrientes aqui
               ),
               SizedBox(height: 16.0), // Espaço entre os cards
             ],
@@ -97,7 +97,7 @@ class DietCard extends StatelessWidget {
   final String description;
   final String calories;
   final ImageProvider image;
-  final List<String> nutrients;
+  final Map<String, String> nutrients;
 
   DietCard({
     required this.title,
@@ -121,16 +121,20 @@ class DietCard extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
             // Imagem
-            Container(
-              width: 150.0, // Largura da imagem
-              height: 200.0, // Altura da imagem
-              child: Image(
-                image: image,
-                fit: BoxFit.cover,
+            Padding(
+              padding:
+                  const EdgeInsets.all(8.0), // Padding externo para a imagem
+              child: Container(
+                width: 150.0, // Largura da imagem
+                height: 200.0, // Altura da imagem
+                child: Image(
+                  image: image,
+                  fit: BoxFit.cover,
+                ),
               ),
             ),
 
-            // Título, Valor Calórico e Nutrientes
+            // Título, Valor Calórico, Descrição e Nutrientes
             Expanded(
               child: Padding(
                 padding: const EdgeInsets.all(16.0),
@@ -172,32 +176,35 @@ class DietCard extends StatelessWidget {
                       ),
                     ),
 
-                    // Nutrientes (Proteína, Carboidratos, Gorduras)
-                    Row(
-                      children: <Widget>[
-                        Text(
-                          'Proteína: ${nutrients[0]}',
-                          style: TextStyle(
-                            fontSize: 16.0,
-                            color: Colors.lightBlue,
+                    SizedBox(
+                        height:
+                            8.0), // Espaço entre a descrição e os nutrientes
+
+                    // Nutrientes
+                    Column(
+                      children: [
+                        for (var nutrient in nutrients.keys)
+                          Row(
+                            children: [
+                              Text(
+                                nutrient,
+                                style: TextStyle(
+                                  fontSize: 16.0,
+                                  color: Colors.lightBlue,
+                                ),
+                              ),
+                              SizedBox(
+                                  width:
+                                      4.0), // Espaço entre os nomes dos nutrientes
+                              Text(
+                                nutrients[nutrient]!,
+                                style: TextStyle(
+                                  fontSize: 16.0,
+                                  color: Colors.white,
+                                ),
+                              ),
+                            ],
                           ),
-                        ),
-                        SizedBox(width: 16.0), // Espaço entre os nutrientes
-                        Text(
-                          'Carboidratos: ${nutrients[1]}',
-                          style: TextStyle(
-                            fontSize: 16.0,
-                            color: Colors.lightBlue,
-                          ),
-                        ),
-                        SizedBox(width: 16.0), // Espaço entre os nutrientes
-                        Text(
-                          'Gorduras: ${nutrients[2]}',
-                          style: TextStyle(
-                            fontSize: 16.0,
-                            color: Colors.lightBlue,
-                          ),
-                        ),
                       ],
                     ),
                   ],
