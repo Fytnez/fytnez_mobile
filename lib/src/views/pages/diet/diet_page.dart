@@ -161,6 +161,13 @@ class DietCard extends StatelessWidget {
                             fontSize: 24.0,
                             fontWeight: FontWeight.bold,
                             color: Colors.white,
+                            shadows: [
+                              Shadow(
+                                color: Colors.black,
+                                offset: Offset(2, 2),
+                                blurRadius: 4,
+                              ),
+                            ],
                           ),
                         ),
                         Text(
@@ -169,6 +176,13 @@ class DietCard extends StatelessWidget {
                             fontSize: 24.0,
                             fontWeight: FontWeight.bold,
                             color: Colors.green,
+                            shadows: [
+                              Shadow(
+                                color: Colors.black,
+                                offset: Offset(2, 2),
+                                blurRadius: 4,
+                              ),
+                            ],
                           ),
                         ),
                       ],
@@ -245,6 +259,13 @@ class RoundedIconButton extends StatelessWidget {
       decoration: BoxDecoration(
         color: backgroundColor,
         borderRadius: BorderRadius.circular(25.0),
+        boxShadow: [
+          BoxShadow(
+            color: Colors.black,
+            offset: Offset(2, 2),
+            blurRadius: 4,
+          ),
+        ],
       ),
       child: IconButton(
         icon: Icon(
