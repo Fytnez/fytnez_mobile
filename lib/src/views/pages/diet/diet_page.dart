@@ -19,6 +19,16 @@ class DietPage extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
               SizedBox(height: 16.0), // Espaço superior
+              RoundedIconButton(
+                // Botão de adição
+                onPressed: () {
+                  // Ação ao pressionar o botão de adição
+                },
+                icon: Icons.add,
+                backgroundColor: Colors.green,
+                iconColor: Colors.white,
+              ),
+              SizedBox(height: 16.0), // Espaço entre o botão e os cards
               DietCard(
                 title: 'Refeição 1',
                 description: 'Descrição da Refeição 1',
@@ -208,6 +218,39 @@ class DietCard extends StatelessWidget {
             ),
           ],
         ),
+      ),
+    );
+  }
+}
+
+class RoundedIconButton extends StatelessWidget {
+  final VoidCallback onPressed;
+  final IconData icon;
+  final Color backgroundColor;
+  final Color iconColor;
+
+  RoundedIconButton({
+    required this.onPressed,
+    required this.icon,
+    required this.backgroundColor,
+    required this.iconColor,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      width: 50.0,
+      height: 50.0,
+      decoration: BoxDecoration(
+        color: backgroundColor,
+        borderRadius: BorderRadius.circular(25.0),
+      ),
+      child: IconButton(
+        icon: Icon(
+          icon,
+          color: iconColor,
+        ),
+        onPressed: onPressed,
       ),
     );
   }
