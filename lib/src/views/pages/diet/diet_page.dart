@@ -10,6 +10,7 @@ class DietPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Color.fromRGBO(32, 41, 48, 0.95),
       appBar: AppBar(
         title: Text('Dieta'),
       ),
@@ -123,7 +124,7 @@ class DietCard extends StatelessWidget {
       width: 0.9 * MediaQuery.of(context).size.width,
       child: Card(
         elevation: 4.0,
-        color: Color.fromRGBO(32, 41, 48, 0.95),
+        color: Color.fromRGBO(54, 66, 81, 2),
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(8.0),
         ),
