@@ -174,8 +174,7 @@ class _HomeState extends State<Home> {
                 case 0: // Estatísticas
                   break;
                 case 1: // Dieta
-                  Navigator.pushReplacementNamed(
-                      context, DietPage.getRouteName());
+                  Navigator.pushNamed(context, DietPage.getRouteName());
                   break;
                 case 2:
                   Navigator.pushReplacementNamed(context, Home.getRouteName());
