@@ -22,6 +22,7 @@ class App extends StatelessWidget {
         // is not restarted.
         primarySwatch: Colors.blue,
       ),
+      initialRoute: '/login',
       routes: screenRoutes,
       navigatorKey: navigatorKey,
     );
