@@ -3,7 +3,7 @@ import 'package:fytnez_mobile/src/dtos/hydric_consumption_dto.dart';
 
 class HydricConsumptionRoute extends GenericRoute<HydricConsumptionDTO> {
   @override
-  String getPath() => 'register/hydric_consumption';
+  String getPath() => '/api/register/hydric_consumption/';
 
   @override
   HydricConsumptionDTO fromMap(Map<String, dynamic> map) {

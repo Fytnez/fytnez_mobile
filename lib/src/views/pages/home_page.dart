@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:fytnez_mobile/src/views/pages/profile/profile_page.dart';
-import '../components/hydric_consumption_component.dart';
+import '../components/hydric_consumption.dart';
 
 class Home extends StatefulWidget {
   static const String _routeName = '/home';
@@ -33,7 +33,7 @@ class _HomeState extends State<Home> {
       appBar: AppBar(
         title: Text('Home'),
       ),
-      body: HydricConsumptionComponent(),
+      body: HydricConsumption(),
       bottomNavigationBar: Theme(
         data: Theme.of(context).copyWith(
           canvasColor: const Color(0xFF2C343C),
